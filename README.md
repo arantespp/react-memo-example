@@ -2,13 +2,19 @@
 
 App: https://8wpgs.csb.app/
 
+CodeSandbox: https://codesandbox.io/s/react-memo-example-8wpgs
+
 ## Description
 
-I create an app to show how React memoization works. The app is a group of containers which displays, along with their name, how many renderizations they had.
+I've created this application to show how React memoization works and was used in a talk I gave at Open Talks ([Opensanca](www.opensanca.com) + React Sanca), September 26, 2019.
+
+The app is a group of containers which displays, along with their name, how many renderizations they had.
 
 We have two states, `counter` and `counter5`. `couter` is the number of clicks on increase button and `counter5` is increased when `counter` reaches a multiple of five value.
 
-Inside the main App, we have two containers, one with not memoized components and another, with monoized ones. Each container has the components: Title, Increase, Counter and Counter5. The role of them in this example is:
+Inside the main App, we have three containers: the first is with not memoized components; the second, with monoized ones. The third one renderizes an arc to show how `useMemo` works.
+
+In the first two containers, we have: Title, Increase, Counter and Counter5. The role of them in this example is:
 
 - Title: used to show how React.memo works.
 
@@ -31,3 +37,5 @@ const MenoizedCounter5 = React.memo(Counter5, (prevProps, nextProps) => {
   return prevProps.value === nextProps.value;
 });
 ```
+
+Finally, the third container renders part of an arc as a function of `counter5`. To create the circle, a function that returns an SVG path was used, and in this function, Polar to Cartesian coordinate transformations are made. For the sake of demonstration, let's assume that these transformations take a lot of processing and we don't want them to be executed every time the component is rendered, but only when `counter5` changes. In the center of the container is the number that the path functions was called.

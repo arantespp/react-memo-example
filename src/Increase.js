@@ -17,7 +17,11 @@ const Button = styled.button`
 
 const Increase = ({ onIncrease, isOnIncreaseMemoized }) => {
   return (
-    <Container name={isOnIncreaseMemoized ? "MemoizedIncrease" : "Increase"}>
+    <Container
+      name={
+        isOnIncreaseMemoized ? "Increase (with memoized callback)" : "Increase"
+      }
+    >
       <Button onClick={onIncrease}>+</Button>
     </Container>
   );

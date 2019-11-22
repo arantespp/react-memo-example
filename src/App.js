@@ -3,6 +3,7 @@ import React, { useEffect, useState, useCallback } from "react";
 import Container from "./Container";
 import Counter from "./Counter";
 import Counter5 from "./Counter5";
+import Circle from "./Circle";
 import Increase from "./Increase";
 import Title from "./Title";
 
@@ -50,6 +51,7 @@ const App = () => {
         <Counter value={counter} />
         <MenoizedCounter5 value={counter5} counter={counter} />
       </Container>
+      <Circle counter={counter} counter5={counter5} />
     </Container>
   );
 };
