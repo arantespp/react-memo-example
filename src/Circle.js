@@ -17,7 +17,7 @@ const circlePath = counter => {
   let angle = (counter * 2 * Math.PI) / 15;
 
   if (angle > 2 * Math.PI) {
-    angle = (angle % 2) * Math.PI;
+    angle = angle % (2 * Math.PI);
   }
 
   console.log(angle);
